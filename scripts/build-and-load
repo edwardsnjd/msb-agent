@@ -1,0 +1,11 @@
+#! /usr/bin/env bash
+
+IMAGE="msb-agent"
+VERSION="latest"
+DOCKER="${DOCKER:-docker}"
+
+# Build
+$DOCKER build --tag "${IMAGE}:${VERSION}" .
+
+# Load into msb
+$DOCKER save "${IMAGE}:${VERSION}" | msb load

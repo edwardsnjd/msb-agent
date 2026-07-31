@@ -1,0 +1,11 @@
+#! /usr/bin/env bash
+
+PROJECT="${PROJECT:-$(basename $(pwd))}"
+MSB_IMAGE="localhost/msb-agent"
+
+msb create \
+  --name "${PROJECT}" \
+  --secret "PERPLEXITY_API_KEY@api.perplexity.ai" \
+  --secret "OPENROUTER_API_KEY@openrouter.ai" \
+  --mount-dir "$HOME/.agents/:/root/.agents/:ro" \
+  "$MSB_IMAGE"

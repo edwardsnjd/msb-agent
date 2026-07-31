@@ -1,0 +1,10 @@
+#! /usr/bin/env bash
+
+DOCKER="${DOCKER:-docker}"
+
+IMAGE="msb-agent"
+VERSION="latest"
+FULL_IMAGE="${IMAGE}:${VERSION}"
+
+# Build
+$DOCKER build --tag "$FULL_IMAGE" .

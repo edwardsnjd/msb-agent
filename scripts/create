@@ -1,7 +1,8 @@
 #! /usr/bin/env bash
 
-# Name of the image built by `scripts/build-and-load`
-MSB_IMAGE="localhost/msb-agent:latest"
+IMAGE="msb-agent"
+VERSION="latest"
+FULL_IMAGE="${IMAGE}:${VERSION}"
 
 # Use directory name as project
 PROJECT="${PROJECT:-$(basename $(pwd))}"
@@ -20,4 +21,4 @@ msb create \
   --workdir "$PWD" \
   --net "public,host" \
   "$@" \
-  "$MSB_IMAGE"
+  "$FULL_IMAGE"

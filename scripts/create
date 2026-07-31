@@ -1,11 +1,23 @@
 #! /usr/bin/env bash
 
-PROJECT="${PROJECT:-$(basename $(pwd))}"
-MSB_IMAGE="localhost/msb-agent"
+# Name of the image built by `scripts/build-and-load`
+MSB_IMAGE="localhost/msb-agent:latest"
 
+# Use directory name as project
+PROJECT="${PROJECT:-$(basename $(pwd))}"
+
+# Support symlinked agents config
+AGENTS_DIR="$(realpath $HOME/.agents)"
+
+# Create a new sandbox for this project directory
 msb create \
   --name "${PROJECT}" \
   --secret "PERPLEXITY_API_KEY@api.perplexity.ai" \
   --secret "OPENROUTER_API_KEY@openrouter.ai" \
-  --mount-dir "$HOME/.agents/:/root/.agents/:ro" \
+  --secret "INCEPTION_API_KEY@api.inceptionlabs.ai" \
+  --mount-dir "${AGENTS_DIR}:/root/.agents:ro" \
+  --mount-dir "$PWD:$PWD" \
+  --workdir "$PWD" \
+  --net "public,host" \
+  "$@" \
   "$MSB_IMAGE"

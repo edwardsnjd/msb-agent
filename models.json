@@ -1,0 +1,23 @@
+{
+  "providers": {
+    "ollama": {
+      "baseUrl": "http://host.microsandbox.internal:11434/v1",
+      "api": "openai-completions",
+      "apiKey": "ollama",
+      "models": [
+        { "id": "gemma4:e4b-mlx" },
+        { "id": "gemma4:12b-mlx" },
+        { "id": "ornith:9b" },
+        { "id": "qwen3.5-coding:latest" }
+      ]
+    },
+    "inceptionlabs": {
+      "baseUrl": "https://api.inceptionlabs.ai/v1",
+      "api": "openai-completions",
+      "apiKey": "$INCEPTION_API_KEY",
+      "models": [
+        { "id": "mercury-2" }
+      ]
+    }
+  }
+}

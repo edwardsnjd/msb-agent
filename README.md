@@ -32,8 +32,8 @@ By default, the image is built and exported using `docker`.  If you want to use 
 scripts/build
 # Load image into msb
 scripts/load
-# Create an existing microvm for the current directory
-scripts/create
+# Run a microvm for the current directory (auto removed)
+scripts/run
 ```
 
 **Creating a sandbox**
@@ -41,7 +41,13 @@ scripts/create
 Use `msb` as per [its docs](https://docs.microsandbox.dev/)
 
 ```bash
+# Create a microvm for the current directory
+scripts/create
+# Use it
 msb exec PROJ_NAME -- pi
 msb exec PROJ_NAME -- bash
+# Manually clean up when finished
+msb ls
+msb stop ...
+msb rm ...
 ```
-

@@ -1,6 +1,6 @@
 #! /usr/bin/env bash
 
-# Create a sandbox in this PWD
+# Run an agent in this PWD
 
 REGISTRY="localhost"
 IMAGE="msb-agent"
@@ -14,8 +14,8 @@ SANDBOX_NAME="${PROJECT}-${RANDOM}"
 # Support symlinked agents config
 AGENTS_DIR="$(realpath $HOME/.agents)"
 
-function createSandbox() {
-  msb create \
+function startSandbox() {
+  msb run \
     --name "${SANDBOX_NAME}" \
     --secret "PERPLEXITY_API_KEY@api.perplexity.ai" \
     --secret "OPENROUTER_API_KEY@openrouter.ai" \
@@ -28,4 +28,10 @@ function createSandbox() {
     "$FULL_IMAGE"
 }
 
-createSandbox "$@"
+function cleanupSandbox() {
+  msb stop "$SANDBOX_NAME" && msb remove "$SANDBOX_NAME"
+}
+
+trap cleanupSandbox EXIT
+
+startSandbox "$@"

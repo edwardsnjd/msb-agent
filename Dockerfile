@@ -16,7 +16,5 @@ RUN npm install --global npm
 
 RUN npm install --global --ignore-scripts @earendil-works/pi-coding-agent
 
-RUN npm install --global opencode-ai
 
-ENTRYPOINT ["pi"]
-CMD []
+ENTRYPOINT ["/bin/sh"]

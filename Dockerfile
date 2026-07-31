@@ -18,4 +18,4 @@ RUN npm install --global --ignore-scripts @earendil-works/pi-coding-agent
 
 COPY models.json /root/.pi/agent/models.json
 
-ENTRYPOINT ["/bin/sh"]
+ENTRYPOINT ["pi"]

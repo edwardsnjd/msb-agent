@@ -4,7 +4,10 @@ This is an opinionated `msb` setup with a base image for the `pi` coding agent.
 
 ## Pre-requisites
 
+Building the image:
 - docker/podman
+
+Running the image:
 - [msb](https://docs.microsandbox.dev/)
 - `~/.agents` configuration on host (symlinks supported)
 - `$PWD` the project directory for the agent to work in
@@ -21,7 +24,10 @@ This is an opinionated `msb` setup with a base image for the `pi` coding agent.
 
 By default, the image is built and exported using `docker`.  If you want to use `podman` instead of `docker`:
 
-`export DOCKER=podman`
+```bash
+export DOCKER=podman
+# build or load
+```
 
 ## Usage
 
@@ -32,6 +38,11 @@ By default, the image is built and exported using `docker`.  If you want to use 
 scripts/build
 # Load image into msb
 scripts/load
+```
+
+**Running a sandbox**
+
+```bash
 # Run a microvm for the current directory (auto removed)
 scripts/run
 ```

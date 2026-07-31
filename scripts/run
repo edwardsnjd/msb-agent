@@ -2,10 +2,8 @@
 
 # Run an agent in this PWD
 
-REGISTRY="localhost"
-IMAGE="msb-agent"
-VERSION="latest"
-FULL_IMAGE="${REGISTRY}/${IMAGE}:${VERSION}"
+# Look for local image by default
+SANDBOX_IMAGE="${SANDBOX_IMAGE:-localhost/msb-agent:latest}"
 
 # Use directory name as project
 PROJECT="${PROJECT:-$(basename $(pwd))}"
@@ -25,7 +23,7 @@ function startSandbox() {
     --workdir "$PWD" \
     --net "public,host" \
     "$@" \
-    "$FULL_IMAGE"
+    "$SANDBOX_IMAGE"
 }
 
 function cleanupSandbox() {

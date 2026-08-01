@@ -57,8 +57,10 @@ scripts/create
 # Use it
 msb exec PROJ_NAME -- pi
 msb exec PROJ_NAME -- bash
-# Manually clean up when finished
-msb ls
+# Clean up all microvms for this directory
+scripts/list
+scripts/clean
+# OR manually manage them selectively
 msb stop ...
 msb rm ...
 ```

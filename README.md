@@ -54,9 +54,15 @@ Use `msb` as per [its docs](https://docs.microsandbox.dev/)
 ```bash
 # Create a microvm for the current directory
 scripts/msb-create
+
 # Use it
-msb exec PROJ_NAME -- pi
-msb exec PROJ_NAME -- bash
+scripts/msb-exec
+scripts/msb-exec date
+scripts/msb-exec pwd
+# OR Use it manually
+msb exec SANDBOX_ID -- pi
+msb exec SANDBOX_ID -- bash
+
 # Clean up all microvms for this directory
 scripts/msb-list
 scripts/msb-clean

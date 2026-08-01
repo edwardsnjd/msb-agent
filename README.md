@@ -36,7 +36,7 @@ export DOCKER=podman
 ```bash
 # Build base image
 make build
-# Load image into msb
+# Load image into msb for use in sandboxes
 make load
 ```
 
@@ -44,7 +44,7 @@ make load
 
 ```bash
 # Run a microvm for the current directory (auto removed)
-scripts/run
+scripts/msb-run
 ```
 
 **Creating a sandbox**
@@ -53,13 +53,13 @@ Use `msb` as per [its docs](https://docs.microsandbox.dev/)
 
 ```bash
 # Create a microvm for the current directory
-scripts/create
+scripts/msb-create
 # Use it
 msb exec PROJ_NAME -- pi
 msb exec PROJ_NAME -- bash
 # Clean up all microvms for this directory
-scripts/list
-scripts/clean
+scripts/msb-list
+scripts/msb-clean
 # OR manually manage them selectively
 msb stop ...
 msb rm ...

@@ -13,6 +13,7 @@ RUN apt-get update \
     curl \
     podman \
     podman-compose \
+    fuse-overlayfs \
     aardvark-dns \
     iproute2 \
     fd-find \

@@ -29,6 +29,16 @@ export DOCKER=podman
 # build or load
 ```
 
+*Utility scripts (Optional)*
+
+The `scripts/` directory has some useful wrappers for the core `msb` commands to make it more ergonomic to work with sandboxes per directory.  Consider adding them to your `PATH`:
+
+- `msb-run` - run a sandbox for the PWD and delete it afterwards
+- `msb-create` - create a detached sandbox for the PWD
+- `msb-list` - list all sandboxes for the PWD
+- `msb-exec` - run a sandbox in the first sandbox in the PWD
+- `msb-clean` - delete all sandboxes for the PWD
+
 ## Usage
 
 **Prepare the base container image**

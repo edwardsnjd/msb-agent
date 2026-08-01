@@ -1,4 +1,0 @@
-#! /usr/bin/env bash
-
-DOCKER="${DOCKER:-docker}"
-$DOCKER build --tag "localhost/msb-agent:latest" .

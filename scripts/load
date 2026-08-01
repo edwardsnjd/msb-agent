@@ -1,4 +1,0 @@
-#! /usr/bin/env bash
-
-DOCKER="${DOCKER:-docker}"
-$DOCKER save "localhost/msb-agent:latest" | msb load

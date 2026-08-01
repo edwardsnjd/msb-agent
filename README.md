@@ -35,9 +35,9 @@ export DOCKER=podman
 
 ```bash
 # Build base image
-scripts/build
+make build
 # Load image into msb
-scripts/load
+make load
 ```
 
 **Running a sandbox**

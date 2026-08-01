@@ -25,10 +25,10 @@ RUN npm install --global npm
 RUN npm install --global --ignore-scripts @earendil-works/pi-coding-agent
 
 # Configure inference providers
-COPY models.json /root/.pi/agent/models.json
+COPY pi/models.json /root/.pi/agent/models.json
 
 # Configure podman volumes and network
-COPY storage.conf /etc/containers/storage.conf
-COPY containers.conf /etc/containers/containers.conf
+COPY podman/storage.conf /etc/containers/storage.conf
+COPY podman/containers.conf /etc/containers/containers.conf
 
 ENTRYPOINT ["pi"]

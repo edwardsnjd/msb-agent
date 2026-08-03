@@ -36,6 +36,7 @@ The `scripts/` directory has some useful wrappers for the core `msb` commands to
 - `msb-run` - run a sandbox for the PWD and delete it afterwards
 - `msb-create` - create a detached sandbox for the PWD
 - `msb-list` - list all sandboxes for the PWD
+- `msb-secrets` - expose hosts agent secrets to the sandbox for the PWD
 - `msb-exec` - run a sandbox in the first sandbox in the PWD
 - `msb-clean` - delete all sandboxes for the PWD
 
@@ -71,14 +72,17 @@ scripts/msb-secrets
 scripts/msb-exec
 scripts/msb-exec date
 scripts/msb-exec pwd
+scripts/msb-exec bash
 # OR Use it manually
-msb exec SANDBOX_ID -- pi
+msb exec SANDBOX_ID
+msb exec SANDBOX_ID -- date
+msb exec SANDBOX_ID -- pwd
 msb exec SANDBOX_ID -- bash
 
 # Clean up all microvms for this directory
 scripts/msb-list
 scripts/msb-clean
-# OR manually manage them selectively
-msb stop ...
-msb rm ...
+# OR Clean them up selectively
+msb stop SANDBOX_ID
+msb rm SANDBOX_ID
 ```

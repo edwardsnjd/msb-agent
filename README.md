@@ -64,6 +64,8 @@ Use `msb` as per [its docs](https://docs.microsandbox.dev/)
 ```bash
 # Create a microvm for the current directory
 scripts/msb-create
+# Expose local host secrets to the microvm
+scripts/msb-secrets
 
 # Use it
 scripts/msb-exec

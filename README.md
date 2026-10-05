@@ -1,6 +1,6 @@
 # msb agent
 
-This is an opinionated `msb` setup with a base image for the `pi` coding agent.
+This is an opinionated `msb` setup with a base image for the `pi` and `opencode` coding agents.
 
 ## Pre-requisites
 

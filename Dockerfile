@@ -25,6 +25,8 @@ RUN npm install --global npm
 
 RUN npm install --global --ignore-scripts @earendil-works/pi-coding-agent
 
+RUN npm install --global --allow-scripts=@opencode/cli @opencode/cli
+
 # Configure inference providers
 COPY pi/models.json /root/.pi/agent/models.json
 

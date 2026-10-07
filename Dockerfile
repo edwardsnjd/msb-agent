@@ -34,4 +34,4 @@ COPY pi/models.json /root/.pi/agent/models.json
 COPY podman/storage.conf /etc/containers/storage.conf
 COPY podman/containers.conf /etc/containers/containers.conf
 
-ENTRYPOINT ["pi"]
+ENTRYPOINT ["bash"]

@@ -83,3 +83,43 @@ scripts/msb-clean
 msb stop SANDBOX_ID
 msb rm SANDBOX_ID
 ```
+
+**Inference providers from inside sandbox**
+
+The create/run scripts both ensure that environment variables for inference providers are set to dummy values inside the sandbox, and intercept and ammend any outgoing network requests to inference providers to use the correct values.
+
+**Certificate authority inside the sandbox**
+
+In order to proxy network requests the sandbox automatically provides a custom CA and overrides the CA chain inside the microvm (via the following environment variables) so applications accept the proxy CA:
+
+```bash
+$ env
+...
+CURL_CA_BUNDLE=/etc/ssl/certs/ca-certificates.crt
+NODE_EXTRA_CA_CERTS=/.msb/tls/ca.pem
+REQUESTS_CA_BUNDLE=/etc/ssl/certs/ca-certificates.crt
+SSL_CERT_FILE=/etc/ssl/certs/ca-certificates.crt
+...
+```
+
+**Certificate authority inside containers**
+
+In order for containers inside the sandbox to accept the proxied traffic certificates, you need to propagate the relevant files and environment variables.
+
+Example: `curl` inside container
+
+```bash
+podman run -ti --rm \
+    --volume "$CURL_CA_BUNDLE":"$CURL_CA_BUNDLE" \
+    --env CURL_CA_BUNDLE \
+    ubuntu bash
+```
+
+Example: `node` inside container
+
+```bash
+podman run -ti --rm \
+    --volume "$NODE_EXTRA_CA_CERTS":"$NODE_EXTRA_CA_CERTS" \
+    --env NODE_EXTRA_CA_CERTS \
+    node bash
+```

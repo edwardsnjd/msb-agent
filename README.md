@@ -17,7 +17,7 @@ Running the image:
 3 inference providers are supported via environment variables:
 
 - OpenRouter via `OPENROUTER_API_KEY`
-- InceptionLaps via `INCEPTION_API_KEY`
+- InceptionLabs via `INCEPTION_API_KEY`
 - Ollama via local host access
 
 *Podman*
@@ -36,7 +36,7 @@ The `scripts/` directory has some useful wrappers for the core `msb` commands to
 - `msb-run` - run a sandbox for the PWD and delete it afterwards
 - `msb-create` - create a detached sandbox for the PWD
 - `msb-list` - list all sandboxes for the PWD
-- `msb-exec` - run a sandbox in the first sandbox in the PWD
+- `msb-exec` - run a command in the first sandbox in the PWD
 - `msb-clean` - delete all sandboxes for the PWD
 
 ## Usage
@@ -86,7 +86,7 @@ msb rm SANDBOX_ID
 
 **Inference providers from inside sandbox**
 
-The create/run scripts both ensure that environment variables for inference providers are set to dummy values inside the sandbox, and intercept and ammend any outgoing network requests to inference providers to use the correct values.
+The create/run scripts both ensure that environment variables for inference providers are set to dummy values inside the sandbox, and intercept and amend any outgoing network requests to inference providers to use the correct values.
 
 **Certificate authority inside the sandbox**
 
